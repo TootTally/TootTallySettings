@@ -26,21 +26,44 @@ namespace TootTallySettings.TootTallySettingsObjects
             label = GameObjectFactory.CreateSingleText(_page.gridPanel.transform, name, _text);
             label.rectTransform.anchoredPosition = Vector2.zero;
             label.rectTransform.pivot = Vector2.one / 2f;
-            label.rectTransform.sizeDelta = new Vector2(0, _fontSize + 10);
             label.enableWordWrapping = false;
             label.fontSize = _fontSize;
             label.fontStyle = _fontStyles;
             label.alignment = _align;
+            UpdateSize();
             base.Initialize();
         }
 
-        public void SetText(string text) =>
+        public void SetText(string text)
+        {
+            _text = text;
             label.text = text;
+            UpdateSize();
+        }
 
         public override void Dispose()
         {
             if (label != null)
                 GameObject.DestroyImmediate(label.gameObject);
+        }
+
+        /// <summary>
+        /// Figure out how much vertical space this label should take up, based on the number of line breaks in it
+        /// </summary>
+        private void UpdateSize()
+        {
+            var faceInfo = label.font.faceInfo;
+            var scale = _fontSize / faceInfo.pointSize;
+            var lineHeight = faceInfo.lineHeight * scale;
+            var height = lineHeight;
+            foreach (var c in _text)
+            {
+                if (c == '\n')
+                {
+                    height += lineHeight;
+                }
+            }
+            label.rectTransform.sizeDelta = new Vector2(0, height + 10);
         }
     }
 }
