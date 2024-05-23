@@ -30,7 +30,7 @@ namespace TootTallySettings.TootTallySettingsObjects
             label.fontSize = _fontSize;
             label.fontStyle = _fontStyles;
             label.alignment = _align;
-            UpdateSize();
+            label.autoSizeTextContainer = true;
             base.Initialize();
         }
 
@@ -38,32 +38,12 @@ namespace TootTallySettings.TootTallySettingsObjects
         {
             _text = text;
             label.text = text;
-            UpdateSize();
         }
 
         public override void Dispose()
         {
             if (label != null)
                 GameObject.DestroyImmediate(label.gameObject);
-        }
-
-        /// <summary>
-        /// Figure out how much vertical space this label should take up, based on the number of line breaks in it
-        /// </summary>
-        private void UpdateSize()
-        {
-            var faceInfo = label.font.faceInfo;
-            var scale = _fontSize / faceInfo.pointSize;
-            var lineHeight = faceInfo.lineHeight * scale;
-            var height = lineHeight;
-            foreach (var c in _text)
-            {
-                if (c == '\n')
-                {
-                    height += lineHeight;
-                }
-            }
-            label.rectTransform.sizeDelta = new Vector2(0, height + 10);
         }
     }
 }
