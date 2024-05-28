@@ -26,16 +26,19 @@ namespace TootTallySettings.TootTallySettingsObjects
             label = GameObjectFactory.CreateSingleText(_page.gridPanel.transform, name, _text);
             label.rectTransform.anchoredPosition = Vector2.zero;
             label.rectTransform.pivot = Vector2.one / 2f;
-            label.rectTransform.sizeDelta = new Vector2(0, _fontSize + 10);
             label.enableWordWrapping = false;
             label.fontSize = _fontSize;
             label.fontStyle = _fontStyles;
             label.alignment = _align;
+            label.autoSizeTextContainer = true;
             base.Initialize();
         }
 
-        public void SetText(string text) =>
+        public void SetText(string text)
+        {
+            _text = text;
             label.text = text;
+        }
 
         public override void Dispose()
         {
