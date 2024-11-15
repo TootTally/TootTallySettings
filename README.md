@@ -1,2 +1,6 @@
-# TootTally Module Template
-This repository is intended to be used as a template for future modules for the [TootTally](https://toottally.com) project.
+# TootTally Settings Module
+> Version: 1.1.3
+
+[TootTallyCore](https://toottally.com/) setting page management for bepinex config editing, module options and more.
+
+**JOIN US IN THE [TOOTTALLY DISCORD!](https://discord.gg/9jQmVEDVTp)**
