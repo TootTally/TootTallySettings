@@ -1,5 +1,5 @@
 # TootTally Settings Module
-> Version: 1.1.3
+> Version: 1.1.4
 
 [TootTallyCore](https://toottally.com/) setting page management for bepinex config editing, module options and more.
 
