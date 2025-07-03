@@ -1,5 +1,11 @@
 #### Changelog:
 
+`v1.1.3` -> `v1.1.5`
+
+```diff
++ Added offset at default speed slider for TTCore
+```
+
 `v1.1.2` -> `v1.1.3`
 
 ```diff

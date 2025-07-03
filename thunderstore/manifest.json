@@ -1,12 +1,12 @@
 {
     "name": "TootTallySettings",
-    "version_number": "1.1.4",
+    "version_number": "1.1.5",
     "website_url": "https://github.com/TootTally/TootTallySettings",
     "description": "TootTally Settings Module",
     "dependencies": [
-        "TootTally-TootTallyCore-1.2.2",
+        "TootTally-TootTallyCore-1.3.0",
         "TromboneChamps-TrombLoader-2.3.0",
-        "TromboneChamps-BaboonAPI-2.7.3",
+        "TromboneChamps-BaboonAPI-2.9.0",
         "BepInEx-BepInExPack_TromboneChamp-5.4.21"
     ]
 }
