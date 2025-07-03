@@ -18,6 +18,7 @@
     <RepositoryUrl>https://github.com/TootTally/TootTallySettings</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <DefaultLanguage>en</DefaultLanguage>
+	<TromboneTootDir>C:\Users\Sabz\AppData\Roaming\r2modmanPlus-local\TromboneChamp\profiles\Default</TromboneTootDir>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -28,16 +29,18 @@
     <PackageReference Include="BepInEx.Analyzers" Version="1.*" PrivateAssets="all" />
     <PackageReference Include="BepInEx.Core" Version="5.*" />
     <PackageReference Include="BepInEx.PluginInfoProps" Version="1.*" />
-    <PackageReference Include="TootTally.Core" Version="1.2.2" />
     <PackageReference Include="UnityEngine.Modules" Version="2019.4.40" IncludeAssets="compile" />
-    <PackageReference Include="TromboneChamp.GameLibs" Version="1.22.0" />
-    <PackageReference Include="TromboneChamp.BaboonAPI" Version="2.7.3" />
+    <PackageReference Include="TromboneChamp.GameLibs" Version="1.25.0" />
+    <PackageReference Include="TromboneChamp.BaboonAPI" Version="2.9.0" />
     <PackageReference Include="TromboneChamp.TrombLoader" Version="2.3.0" />
     <Assets Include="thunderstore\Assets\**" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework.TrimEnd(`0123456789`))' == 'net'">
     <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.2" PrivateAssets="all" />
+	<Reference Include="TootTallyCore">
+		<HintPath>$(TromboneTootDir)\BepInEx\plugins\TootTally-TootTallyCore\TootTallyCore.dll</HintPath>
+	</Reference>
   </ItemGroup>
 
   <ItemGroup Condition="'$(Configuration)' == 'Release'">
@@ -46,7 +49,7 @@
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent" Condition="$(TromboneTootDir) != ''">
-    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(TromboneTootDir)" />
+    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(TromboneTootDir)\BepInEx\plugins\TootTally-TootTallySettings" />
   </Target>
 
   <Target Name="ThunderstoreZip" AfterTargets="Build">

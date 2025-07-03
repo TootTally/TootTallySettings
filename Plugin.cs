@@ -57,6 +57,7 @@ namespace TootTallySettings
             MainTootTallySettingPage.AddButton("ResetThemeButton", new Vector2(350, 50), "Refresh Theme", ThemeManager.RefreshTheme);
             MainTootTallySettingPage.AddToggle("Change pitch speed", TootTallyCore.Plugin.Instance.ChangePitch);
             MainTootTallySettingPage.AddToggle("Run GC While Playing", TootTallyCore.Plugin.Instance.RunGCWhilePlaying);
+            MainTootTallySettingPage.AddSlider("Offset At Default Speed", -100, 100, 500, "Offset At Default Speed (ms)", TootTallyCore.Plugin.Instance.OffsetAtDefaultSpeed, true);
             ThemeManager.OnThemeRefreshEvents += TootTallySettingsManager.OnRefreshTheme;
             TootTallyModuleManager.AddModule(this);
         }
