@@ -55,6 +55,7 @@ namespace TootTallySettings
 
             var headerText = GameObjectFactory.CreateSingleText(mainPanel.transform, "TootTallySettingsHeader", "TootTally Settings");
             headerText.gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 475);
+            headerText.rectTransform.sizeDelta = new Vector2(2000, 0);
             headerText.fontSize = 72;
             headerText.fontStyle = FontStyles.Bold | FontStyles.UpperCase;
             headerText.alignment = TextAlignmentOptions.Top;
@@ -169,9 +170,11 @@ namespace TootTallySettings
             text.color = Theme.colors.leaderboard.text;
 
             var gridPanel = panel.transform.Find("SettingsPanelGridHolder").gameObject;
-            gridPanel.GetComponent<RectTransform>().pivot = new Vector2(0, 1);
-            gridPanel.GetComponent<RectTransform>().anchorMax = new Vector2(0.5f, 1);
-            gridPanel.GetComponent<RectTransform>().anchoredPosition = new Vector2(-950, -150);
+            var gridRect = gridPanel.GetComponent<RectTransform>();
+            gridRect.pivot = new Vector2(0, 1);
+            gridRect.anchorMax = new Vector2(.5f, 1);
+            gridRect.anchorMin = new Vector2(.5f, 0);
+            gridRect.anchoredPosition = new Vector2(-950, -150);
 
             var verticalLayoutGroup = gridPanel.AddComponent<VerticalLayoutGroup>();
             verticalLayoutGroup.childAlignment = TextAnchor.UpperLeft;
