@@ -1,5 +1,12 @@
 #### Changelog:
 
+`v1.1.5` -> `v1.1.6`
+
+```diff
++ Compatibility update for 1.27E
++ Fixed slider's default value showing "50" instead of their real values
+```
+
 `v1.1.3` -> `v1.1.5`
 
 ```diff
