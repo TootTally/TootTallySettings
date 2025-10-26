@@ -1,5 +1,11 @@
 #### Changelog:
 
+`v1.1.6` -> `v1.1.7`
+
+```diff
++ Fixed crash when enabling-disabling certain modules
+```
+
 `v1.1.5` -> `v1.1.6`
 
 ```diff
