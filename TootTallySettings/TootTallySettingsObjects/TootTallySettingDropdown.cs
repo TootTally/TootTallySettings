@@ -21,19 +21,15 @@ namespace TootTallySettings.TootTallySettingsObjects
         {
             _config = config;
             _optionValues = optionValues.ToList();
-            if (TootTallySettingsManager.isInitialized)
-            {
+            if (page.isInitialized)
                 Initialize();
-            }
         }
 
         public TootTallySettingDropdown(TootTallySettingPage page, string name, ConfigEntryBase config) : base(name, page)
         {
             _config = config;
-            if (TootTallySettingsManager.isInitialized)
-            {
+            if (page.isInitialized)
                 Initialize();
-            }
         }
 
         public void ConfigureDropdownEnum()

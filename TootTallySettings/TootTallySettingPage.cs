@@ -36,7 +36,7 @@ namespace TootTallySettings
         public GameObject gridPanel;
         private Color _bgColor;
         private ColorBlock _btnColors;
-        private bool _isInitialized;
+        public bool isInitialized;
         public TootTallySettingPage(string pageName, string headerName, float elementSpacing, Color bgColor, ColorBlock btnColors)
         {
             this.name = pageName;
@@ -45,8 +45,9 @@ namespace TootTallySettings
             _bgColor = bgColor;
             _btnColors = btnColors;
             _settingObjectList = new List<BaseTootTallySettingObject>();
-            if (TootTallySettingsManager.isInitialized)
-                Initialize();
+            //Causes a crash since its called before inherited constructors
+            /*if (TootTallySettingsManager.isInitialized)
+                Initialize();*/
         }
 
         public virtual void Initialize()
@@ -85,7 +86,7 @@ namespace TootTallySettings
                 }
             });
 
-            _isInitialized = true;
+            isInitialized = true;
         }
 
         private string _extraImagePath;
@@ -153,7 +154,7 @@ namespace TootTallySettings
 
             _settingObjectList.Remove(settingObject);
 
-            if (_isInitialized)
+            if (isInitialized)
                 UpdateVerticalSlider();
         }
 
@@ -163,7 +164,7 @@ namespace TootTallySettings
             _settingObjectList.CopyTo(allObjectsList);
             allObjectsList.ToList().ForEach(o => o.Remove());
 
-            if (_isInitialized)
+            if (isInitialized)
                 UpdateVerticalSlider();
         }
 
@@ -178,7 +179,7 @@ namespace TootTallySettings
         {
             _settingObjectList.Add(settingObject);
 
-            if (_isInitialized)
+            if (isInitialized)
                 UpdateVerticalSlider();
 
             return settingObject;

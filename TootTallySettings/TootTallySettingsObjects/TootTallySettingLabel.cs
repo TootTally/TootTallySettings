@@ -18,7 +18,7 @@ namespace TootTallySettings.TootTallySettingsObjects
             _fontSize = fontSize;
             _fontStyles = fontStyles;
             _align = align;
-            if (TootTallySettingsManager.isInitialized)
+            if (page.isInitialized)
                 Initialize();
         }
         public override void Initialize()
