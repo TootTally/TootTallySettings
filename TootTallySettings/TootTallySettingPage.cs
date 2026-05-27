@@ -168,6 +168,17 @@ namespace TootTallySettings
                 UpdateVerticalSlider();
         }
 
+        public void RemoveConditionalObjects(Func<BaseTootTallySettingObject, bool> conditional)
+        {
+            var objectsToRemove = _settingObjectList.Where(conditional).ToList();
+            BaseTootTallySettingObject[] allObjectsList = new BaseTootTallySettingObject[objectsToRemove.Count];
+            objectsToRemove.CopyTo(allObjectsList);
+            allObjectsList.ToList().ForEach(o => o.Remove());
+
+            if (isInitialized)
+                UpdateVerticalSlider();
+        }
+
         public void RefreshTheme()
         {
             GameObject.Destroy(_fullPanel.gameObject);
